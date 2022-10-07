@@ -8,25 +8,28 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
         const root = document.getElementById("root");
-        function Title () {
+        function App () {
+            // 효율적인 방식
+            const [count, modifier] = React.useState();
+            
+            // 비효율적인 방식
+            // const data = React.useState(0);
+            // const count = data[0];
+            // const modifier = data[1];
+            console.log(data);
+            console.log(count);
+            console.log(modifier);
             return (
-                <h3 id="good-h3
-                " onMouseEnter={() => console.log("mouse enter")}>
-                    Hello
-                </h3>
-            )
-        };
-        const Button = () => (
-            <button onClick={() => console.log("Clicked")}>
-                Click!
-            </button>
-        );
-        const Container = () => (
-            <div>
-                <Title />
-                <Button />
-            </div>
-        );
-        ReactDOM.render(<Container />, root);
+                <div>
+                    <h3>
+                        Count : 0
+                    </h3>
+                    <button>
+                        Click!
+                    </button>
+                </div>
+            );
+        }
+        ReactDOM.render(<App />, root)
     </script>
 </html>
