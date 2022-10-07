@@ -9,27 +9,24 @@
     <script type="text/babel">
         const root = document.getElementById("root");
         function App () {
-            // 효율적인 방식
-            const [count, modifier] = React.useState();
+            const [count, setCount] = React.useState(0);
             
-            // 비효율적인 방식
-            // const data = React.useState(0);
-            // const count = data[0];
-            // const modifier = data[1];
-            console.log(data);
+            function onClick () {
+                setCount((current) => current + 1);
+            }
+            console.log("render");
             console.log(count);
-            console.log(modifier);
             return (
                 <div>
                     <h3>
-                        Count : 0
+                        Count : {count}
                     </h3>
-                    <button>
+                    <button onClick={onClick}>
                         Click!
                     </button>
                 </div>
             );
         }
-        ReactDOM.render(<App />, root)
+        ReactDOM.render(<App />, root);
     </script>
 </html>
