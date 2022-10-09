@@ -7,26 +7,61 @@
     <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
-        function App () {
-            const [minutes, setMinutes] = React.useState();
+        function TimeConverter () {
+            const [amount, setAmount] = React.useState(0);
+            const [inverted, setInverted] = React.useState(true);
             const onChange = (event) => {
-                console.log(event.target.value);
-                setMinutes(event.target.value);
+                setAmount(event.target.value);
             };
+            const onInverted = () => {
+                reset();
+                setInverted((current) => !current);
+            }
+            const reset = () => setAmount(0);
             return (
                 <div>
-                    <h3> Super Converter </ h3>
-                    <label htmlFor="miniutes">Minutes</label>
-                    <input 
-                        value={minutes}
-                        id="miniutes"
-                        placeholder="miniutes"
-                        type="number"
-                        onChange={onChange}
-                    />
-                    <h4>You want to convert {minutes}</h4>
-                    <label htmlFor="hours">Hours</label>
-                    <input id="hours" placeholder="hours" type="number" />
+                    <div>
+                        <h3> Super Converter ver.Time </h3>
+                        <label htmlFor="miniutes">Minutes</label>
+                        <input 
+                            value={inverted ? amount : amount * 60}
+                            id="miniutes"
+                            placeholder="miniutes"
+                            type="number"
+                            onChange={onChange}
+                            disabled={!inverted}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="hours">Hours</label>
+                        <input
+                            value={inverted ? Math.round(amount / 60) : amount}
+                            id="hours"
+                            placeholder="hours"
+                            type="number"
+                            onChange={onChange}
+                            disabled={inverted}
+                        />
+                    </div>
+                    <button onClick={reset}>reset</button>
+                    <button onClick={onInverted}>{!inverted ? "Minutes -> Hours" : "Hours -> Minutes"}</button>
+                </div>
+            );
+        }
+        function DistanceConverter () {
+            return (
+                <h3> Super Converter ver.Distance </h3>
+            );
+        }
+        function App () {
+            const [mode, setMode] = React.useState(true);
+            const onMode = () => {
+                setMode((current) => !current)
+            }
+            return (
+                <div>
+                    {mode ? <TimeConverter /> : <DistanceConverter />}
+                    <button onClick={onMode}>{!mode ? "Time" : "Distance"}</button>
                 </div>
             );
         }
