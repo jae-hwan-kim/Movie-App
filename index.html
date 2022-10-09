@@ -54,14 +54,21 @@
             );
         }
         function App () {
-            const [mode, setMode] = React.useState(true);
-            const onMode = () => {
-                setMode((current) => !current)
-            }
+            const [index, setIndex] = React.useState("X");
+            const onSelect = (event) => {
+                setIndex(event.target.value);
+            };
             return (
                 <div>
-                    {mode ? <TimeConverter /> : <DistanceConverter />}
-                    <button onClick={onMode}>{!mode ? "Time" : "Distance"}</button>
+                    <select value={index} onChange={onSelect}>
+                        <option value="X">Select</option>
+                        <option value="0">Time</option>
+                        <option value="1">Distance</option>
+                    </select>
+                    <hr />
+                    {index === "X" ? "Select unit" : null}
+                    {index === "0" ? <TimeConverter /> : null}
+                    {index === "1" ? <DistanceConverter /> : null}
                 </div>
             );
         }
