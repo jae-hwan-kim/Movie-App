@@ -7,68 +7,32 @@
     <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
-        function TimeConverter () {
-            const [amount, setAmount] = React.useState(0);
-            const [inverted, setInverted] = React.useState(true);
-            const onChange = (event) => {
-                setAmount(event.target.value);
-            };
-            const onInverted = () => {
-                reset();
-                setInverted((current) => !current);
-            }
-            const reset = () => setAmount(0);
+        function Btn ({text, font, onClick}) {
+            console.log({text}, "was rendered");
             return (
-                <div>
-                    <div>
-                        <h3> Super Converter ver.Time </h3>
-                        <label htmlFor="miniutes">Minutes</label>
-                        <input 
-                            value={inverted ? amount : amount * 60}
-                            id="miniutes"
-                            placeholder="miniutes"
-                            type="number"
-                            onChange={onChange}
-                            disabled={!inverted}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="hours">Hours</label>
-                        <input
-                            value={inverted ? Math.round(amount / 60) : amount}
-                            id="hours"
-                            placeholder="hours"
-                            type="number"
-                            onChange={onChange}
-                            disabled={inverted}
-                        />
-                    </div>
-                    <button onClick={reset}>reset</button>
-                    <button onClick={onInverted}>{!inverted ? "Minutes -> Hours" : "Hours -> Minutes"}</button>
-                </div>
+                <button 
+                    onClick={onClick}
+                    style={{
+                        color: "white",
+                        backgroundColor: "tomato",
+                        border: 0,
+                        borderRadius: 10,
+                        padding: "10px 20px",
+                        fontSize: font === "18" ? 18 : 10,
+                }}>
+                    {text}
+                </button>
             );
         }
-        function DistanceConverter () {
-            return (
-                <h3> Super Converter ver.Distance </h3>
-            );
-        }
+        const MemoBtn = React.memo(Btn);
         function App () {
-            const [index, setIndex] = React.useState("X");
-            const onSelect = (event) => {
-                setIndex(event.target.value);
-            };
+            const [value, setValue] = React.useState("Save");
+            const changeValue = () => setValue("Revert");
+            console.log("I was rendered");
             return (
                 <div>
-                    <select value={index} onChange={onSelect}>
-                        <option value="X">Select</option>
-                        <option value="0">Time</option>
-                        <option value="1">Distance</option>
-                    </select>
-                    <hr />
-                    {index === "X" ? "Select unit" : null}
-                    {index === "0" ? <TimeConverter /> : null}
-                    {index === "1" ? <DistanceConverter /> : null}
+                    <MemoBtn text={value} font="18" onClick={changeValue} />
+                    <MemoBtn text="Confirm" />
                 </div>
             );
         }
