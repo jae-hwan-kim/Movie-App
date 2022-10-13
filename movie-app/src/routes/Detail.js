@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import { useParams } from 'react-router-dom';
+import PropTypes from "prop-types";
 
 function Detail({float}) {
     const [loading, setLoading] = React.useState(true);
@@ -33,6 +34,10 @@ function Detail({float}) {
             }
         </div>
     );
+}
+
+Detail.propTypes = {
+    float: PropTypes.string.isRequired
 }
 
 export default Detail;
