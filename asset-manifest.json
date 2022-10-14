@@ -1,11 +1,11 @@
 {
-  "main.js": "/Movie-App/static/js/main.2885c873.chunk.js",
-  "main.js.map": "/Movie-App/static/js/main.2885c873.chunk.js.map",
-  "static/js/1.b8bccec9.chunk.js": "/Movie-App/static/js/1.b8bccec9.chunk.js",
-  "static/js/1.b8bccec9.chunk.js.map": "/Movie-App/static/js/1.b8bccec9.chunk.js.map",
-  "runtime~main.js": "/Movie-App/static/js/runtime~main.a048416a.js",
-  "runtime~main.js.map": "/Movie-App/static/js/runtime~main.a048416a.js.map",
-  "index.html": "/Movie-App/index.html",
-  "precache-manifest.94e9db79f569a31e0c9ed2a40fb47231.js": "/Movie-App/precache-manifest.94e9db79f569a31e0c9ed2a40fb47231.js",
-  "service-worker.js": "/Movie-App/service-worker.js"
+  "main.js": "/Movie-App/index.html/static/js/main.68659dbe.chunk.js",
+  "main.js.map": "/Movie-App/index.html/static/js/main.68659dbe.chunk.js.map",
+  "static/js/1.b8bccec9.chunk.js": "/Movie-App/index.html/static/js/1.b8bccec9.chunk.js",
+  "static/js/1.b8bccec9.chunk.js.map": "/Movie-App/index.html/static/js/1.b8bccec9.chunk.js.map",
+  "runtime~main.js": "/Movie-App/index.html/static/js/runtime~main.629848b4.js",
+  "runtime~main.js.map": "/Movie-App/index.html/static/js/runtime~main.629848b4.js.map",
+  "index.html": "/Movie-App/index.html/index.html",
+  "precache-manifest.ff0d2247440b515b26628964a1174c02.js": "/Movie-App/index.html/precache-manifest.ff0d2247440b515b26628964a1174c02.js",
+  "service-worker.js": "/Movie-App/index.html/service-worker.js"
 }
