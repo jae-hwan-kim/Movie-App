@@ -1,10 +1,10 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
 import PropTypes from "prop-types";
 
 function Detail({float}) {
-    const [loading, setLoading] = React.useState(true);
-    const [movieData, setMovieData] = React.useState();
+    const [loading, setLoading] = useState(true);
+    const [movieData, setMovieData] = useState();
     const { id } = useParams();
     const getMovie = async () => {
         const json = await (
